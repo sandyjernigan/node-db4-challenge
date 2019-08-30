@@ -37,6 +37,23 @@ router.get('/:id/shoppingList', async (req, res) => {
   }
 });
 
+// GET /api/recipes/:id/instructions: a correctly ordered list of how to prepare a single recipe
+router.get('/:id/instructions', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const recipe = await Recipes.getInstructions(id);
+
+    if (recipe.length) {
+      res.json(recipe);
+    } else {
+      res.status(404).json({ message: 'Could not find the recipe instructions' })
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get recipe instructions' });
+  }
+});
+
 //#endregion
 
 //#region - UPDATE
