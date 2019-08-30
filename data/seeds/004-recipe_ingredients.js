@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('zoo_animals').insert([
+  return knex('recipe_ingredients').insert([
     { recipe_id: 1, ingredient_id: 1, quantity: 1, measurement: 'box', optional: false },
     { recipe_id: 1, ingredient_id: 2, quantity: 1, measurement: 'box', optional: false },
     { recipe_id: 1, ingredient_id: 3, quantity: 1, measurement: 'tablespoon', optional: false },
