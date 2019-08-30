@@ -58,8 +58,9 @@ exports.up = function(knex) {
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
     tbl.primary(['recipe_id', 'ingredient_id']);
-    tbl.integer('quantity').notNullable();
-    tbl.string('measurement', 128).notNullable();
+    tbl.integer('quantity');
+    tbl.string('measurement', 128);
+    tbl.boolean('optional');
   })
 };
 
