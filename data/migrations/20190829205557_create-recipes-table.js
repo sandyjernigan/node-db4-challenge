@@ -30,7 +30,7 @@ exports.up = function(knex) {
   .createTable('steps', tbl => {
     tbl.increments();
     tbl.string('step').notNullable();
-    tbl.text('instructions', longtext).notNullable();
+    tbl.text('instructions', 'longtext').notNullable();
     // foreign key setup using knex
     tbl.integer('recipe_id')
       .unsigned()

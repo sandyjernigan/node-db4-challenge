@@ -13,6 +13,7 @@ module.exports = {
     seeds: {
       directory: './data/seeds'
     },
+    useNullAsDefault: true,
     // add the following
     pool: {
       afterCreate: (conn, done) => {
