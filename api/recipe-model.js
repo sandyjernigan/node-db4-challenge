@@ -1,11 +1,7 @@
 const db = require('../data/db-config.js');
 
 module.exports = {
-  add,
-  find,
-  findById,
-  update,
-  remove
+  getRecipes
 };
 
 //#region - CREATE
@@ -16,7 +12,11 @@ module.exports = {
 
 //#region - READ
 
-// find
+// getRecipes(): should return a list of all recipes in the database.
+function getRecipes() {
+  return db('recipes');
+}
+
 // findById
 
 //#endregion
