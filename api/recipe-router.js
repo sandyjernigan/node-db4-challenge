@@ -20,6 +20,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET /api/recipes/:id/: return a recipe, list of all ingredients, and instructions.
+router.get('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const recipe = await Recipes.getRecipeByID(id);
+
+    if (recipe.length) {
+      res.json(recipe);
+    } else {
+      res.status(404).json({ message: 'Could not find the recipe' })
+    }
+  } catch (err) {
+    res.status(500).json({ message: 'Failed to get recipe' });
+  }
+});
+
 // GET /api/recipes/:id/shoppingList: a list of ingredients and quantites for a single recipe
 router.get('/:id/shoppingList', async (req, res) => {
   const { id } = req.params;
